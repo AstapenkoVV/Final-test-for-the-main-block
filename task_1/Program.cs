@@ -12,7 +12,7 @@
 using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 
-string[] messageArray = new string[4] {"Hello", "2", "world", ":-)"};
+string[] messageArray = new string[] {"Hello", "2", "world", ":-)"};
 string[] array = ResultArray(messageArray);
 Console.Clear();
 PrintArray(messageArray);
