@@ -12,7 +12,7 @@
 using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 
-string[] messageArray = new string[] {"Hello", "2", "world", ":-)"};
+string[] messageArray = new string[] { "Hello", "2", "world", ":-)"};
 string[] array = ResultArray(messageArray);
 Console.Clear();
 PrintArray(messageArray);
@@ -22,22 +22,24 @@ PrintArray(array);
 string[] ResultArray(string[] array)
 {
     int count = 0;
-    Random rand = new Random();
-    int number = rand.Next(0,4);
-    string[] newArray = new string [number];
-    for(int i = 0; i < newArray.Length; i++)
-    if(count <= number)
+    string[] newArray = new string[array.Length];
+    for (int i = 0; i < array.Length; i++)
     {
-        newArray[count] = array[i];
-        count++;
+        if (array[i].Length <= 3)
+        {
+            newArray[count] = array[i];
+            count++;
+        }
     }
+    if (newArray.Length > count + 1)
+        Array.Resize(ref newArray, count);
     return newArray;
 }
 
 void PrintArray(string[] array)
 {
     Console.Write("[");
-    for(int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
         Console.Write(" {" + array[i] + "} ");
     }
